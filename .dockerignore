@@ -1,0 +1,19 @@
+# Docker context ignore
+node_modules
+.next
+.git
+.gitignore
+npm-debug.log*
+yarn.lock
+pnpm-lock.yaml
+Dockerfile*
+.dockerignore
+.env*
+coverage
+*.tsbuildinfo
+*.log
+README.md
+/.vscode
+/.idea
+dist
+

@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light/Dark defaults */
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* Reduce double-tap zoom on interactive elements (iOS/Android) */
+button, a, input[type="button"], input[type="submit"], label {
+  touch-action: manipulation;
+}
