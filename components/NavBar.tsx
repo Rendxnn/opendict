@@ -8,10 +8,14 @@ import { listEntries } from '@/lib/client/store';
 export default function NavBar() {
   const [canPlay, setCanPlay] = useState(false);
   useEffect(() => {
-    // Evaluate eligibility client-side
-    const entries = listEntries();
-    const usable = entries.filter((e) => (e.data?.senses || []).some((s: any) => typeof s?.text === 'string' && !s.text.trim().startsWith(':')));
-    setCanPlay(usable.length >= 10);
+    const update = () => {
+      const entries = listEntries();
+      const usable = entries.filter((e) => (e.data?.senses || []).some((s: any) => typeof s?.text === 'string' && !s.text.trim().startsWith(':')));
+      setCanPlay(usable.length >= 10);
+    };
+    update();
+    window.addEventListener('opendict:entries-changed' as any, update);
+    return () => window.removeEventListener('opendict:entries-changed' as any, update);
   }, []);
   return (
     <header className="flex items-center justify-between gap-3">

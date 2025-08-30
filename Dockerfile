@@ -2,8 +2,7 @@
 
 # 1) Builder: install deps and build
 FROM node:20-alpine AS builder
-ENV NODE_ENV=development \
-    NEXT_TELEMETRY_DISABLED=1
+ENV NEXT_TELEMETRY_DISABLED=1
 WORKDIR /app
 
 # Install OS deps (optional: sharp needs libc6-compat on alpine)
@@ -45,4 +44,3 @@ USER nextjs
 
 # Start the Next.js standalone server
 CMD ["node", "server.js"]
-

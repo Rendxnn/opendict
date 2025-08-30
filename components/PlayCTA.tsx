@@ -8,10 +8,15 @@ export default function PlayCTA() {
   const [canPlay, setCanPlay] = useState(false);
   const [count, setCount] = useState(0);
   useEffect(() => {
-    const e = listEntries();
-    const usable = e.filter((x) => (x.data?.senses || []).some((s: any) => typeof s?.text === 'string' && !s.text.trim().startsWith(':')));
-    setCount(usable.length);
-    setCanPlay(usable.length >= 10);
+    const update = () => {
+      const e = listEntries();
+      const usable = e.filter((x) => (x.data?.senses || []).some((s: any) => typeof s?.text === 'string' && !s.text.trim().startsWith(':')));
+      setCount(usable.length);
+      setCanPlay(usable.length >= 10);
+    };
+    update();
+    window.addEventListener('opendict:entries-changed' as any, update);
+    return () => window.removeEventListener('opendict:entries-changed' as any, update);
   }, []);
   return (
     <div className="mt-6 text-center">

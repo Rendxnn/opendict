@@ -13,14 +13,20 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
+export const metadata: Metadata = {
+  title: 'OpenDict',
+  description: 'Busca definiciones y aprende jugando.',
+  themeColor: '#0ea5e9',
+  manifest: '/manifest.webmanifest',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+  },
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <head>
-        <link rel="manifest" href="/manifest.webmanifest" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-      </head>
       <body className="min-h-screen bg-[#0b1220] text-slate-100">
         <div className="mx-auto w-full max-w-screen-md px-4 py-6 sm:py-8">
           <NavBar />

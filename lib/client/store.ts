@@ -40,6 +40,9 @@ export function upsertEntry(word: string, data: any, limit = 50) {
   const next: Record<string, Entry> = {};
   for (const e of sorted) next[e.word] = e;
   localStorage.setItem(KEY_ENTRIES, JSON.stringify(next));
+  try {
+    window.dispatchEvent(new CustomEvent('opendict:entries-changed'));
+  } catch {}
 }
 
 export function getEntry(word: string): Entry | null {

@@ -31,6 +31,8 @@ export interface RaeSense {
   description?: string;
   synonyms?: string[] | null;
   antonyms?: string[] | null;
+  // Some upstream payloads may include example sentences
+  examples?: string[] | null;
 }
 
 export interface RaeConjugations {
@@ -79,6 +81,7 @@ export interface RaeConjTable {
 export interface DictSenseDTO {
   text: string;
   synonyms: string[];
+  examples?: string[];
 }
 
 export interface DictEntryDTO {
@@ -92,4 +95,3 @@ export interface DictEntryDTO {
     imperative?: Record<string, string> | RaeConjTable;
   } | null;
 }
-

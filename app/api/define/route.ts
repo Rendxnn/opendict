@@ -9,6 +9,9 @@ function simplify(meaning: RaeMeaning | undefined, fallbackWord: string): DictEn
     .map((s) => ({
       text: s.description || s.raw || '',
       synonyms: Array.isArray(s.synonyms) ? s.synonyms.filter(Boolean) : [],
+      examples: Array.isArray((s as any).examples)
+        ? ((s as any).examples as unknown[]).filter((e) => typeof e === 'string') as string[]
+        : [],
     }))
     .filter((s) => s.text)
     .slice(0, 3);
