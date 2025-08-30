@@ -1,5 +1,11 @@
 # OpenDict
 
+<img width="1267" height="943" alt="image" src="https://github.com/user-attachments/assets/05246c78-23c1-48cc-abfb-d458679c6ce0" />
+
+<img width="1267" height="943" alt="image" src="https://github.com/user-attachments/assets/5b16f003-928a-456d-91d7-88b50a6f2b97" />
+
+
+
 OpenDict es una app web (Next.js) para buscar definiciones en español, guardarlas localmente y aprender jugando con un minijuego de opción múltiple basado en tu historial.
 
 ## Características
